@@ -1,0 +1,83 @@
+version: 2
+
+models:
+  - name: model_stg__order_transactions
+    description: "Captures all food delivery orders placed throughout the year, including order time, delivery, and final status."
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order."
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        description: "Unique identifier for each customer."
+        tests:
+          - not_null
+
+      - name: restaurant_id
+        description: "Unique identifier for each restaurant."
+        tests:
+          - not_null
+
+      - name: driver_id
+        description: "Unique identifier for each driver."
+        tests:
+          - not_null
+
+      - name: order_datetime
+        description: "Timestamp when the order was placed."
+        tests:
+          - not_null
+
+      - name: pickup_datetime
+        description: "Timestamp when the order was picked up by the driver."
+
+      - name: delivery_datetime
+        description: "Timestamp when the order was delivered to the customer."
+
+      - name: order_status
+        description: "Current status of the order (completed, canceled, failed)."
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - completed
+                - canceled
+                - failed
+
+      - name: delivery_zone
+        description: "Zone where the order was delivered."
+        tests:
+            - accepted_values:
+                values:
+                    - north
+                    - east
+                    - south
+                    - west
+                    - central
+                    - metro
+
+      - name: total_amount
+        description: "Total amount charged for the order."
+
+      - name: payment_method
+        description: "Method of payment used for the order (credit_card, cash, mobile_wallet)."
+        tests:
+          - accepted_values:
+              values:
+                - credit_card
+                - cash
+                - mobile_wallet
+
+      - name: is_late_delivery
+        description: "Indicates whether the order was delivered late (true/false)."
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - true
+                - false
+
+      - name: delivery_distance_km
+        description: "Distance in kilometers from the restaurant to the delivery location."

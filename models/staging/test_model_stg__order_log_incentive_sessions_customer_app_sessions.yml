@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: model_stg__order_log_incentive_sessions_customer_app_sessions
+    description: "Tracks customer activity when using the mobile application, including session duration and device used."
+    columns:
+      - name: session_id
+        description: "Unique identifier for each session."
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        description: "Unique identifier for each customer."
+        tests:
+          - not_null
+
+      - name: session_start
+        description: "Start time of the session."
+        tests:
+          - not_null
+
+      - name: session_end
+        description: "End time of the session."
+        tests:
+          - not_null
+
+      - name: device_type
+        description: "Type of device used for the session (android, ios, web)."
+        tests:
+          - accepted_values:
+              values:
+                - android
+                - ios
+                - web
+
+      - name: os_version
+        description: "Operating system version of the device used."
+
+      - name: app_version
+        description: "Version of the application used during the session."
+
+      - name: location
+        description: "Location of the customer during the session."

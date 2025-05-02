@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: model_stg__restaurants_master
+    description: "Includes information about restaurants participating in the platform."
+    columns:
+      - name: restaurant_id
+        description: "Unique identifier for each restaurant."
+        tests:
+          - not_null
+          - unique
+
+      - name: restaurant_name
+        description: "Name of the restaurant."
+        tests:
+          - not_null
+
+      - name: category
+        description: "Type of cuisine offered by the restaurant"
+        tests:
+          - not_null
+
+      - name: city
+        description: "City where the restaurant is located."
+        tests:
+          - not_null
+
+      - name: restaurant_rating
+        description: "Rating of the restaurant based on customer feedback."
+        tests:
+          - not_null
+
+      - name: active_status
+        description: "Current status of the restaurant (active, inactive)."
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - active
+                - inactive
+
+      - name: prep_time_min
+        description: "Average preparation time for orders at the restaurant."
+        tests:
+          - not_null

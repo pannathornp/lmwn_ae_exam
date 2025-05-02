@@ -1,0 +1,91 @@
+version: 2
+
+models:
+  - name: model_stg__campaign_master
+    description: "Details marketing campaigns that were launched throughout the year."
+    columns:
+      - name: campaign_id
+        description: "Unique identifier for the campaign"
+        tests:
+          - unique
+          - not_null
+  
+      - name: campaign_name
+        description: "Name of the campaign"
+        tests:
+          - not_null
+
+      - name: start_date
+        description: "Start date of the campaign"
+        tests:
+          - not_null
+
+      - name: end_date
+        description: "End date of the campaign"
+        tests:
+          - not_null
+
+      - name: campaign_type
+        description: "Type of campaign (acquisition, loyalty, retargeting, seasonal)"
+        tests:
+          - accepted_values:
+              values:
+                - acquisition
+                - loyalty
+                - retargeting
+                - seasonal
+
+      - name: objective
+        description: "Campaign objective (reactivate_lapsed, increase_orders, boost_new_customers)"
+        tests:
+          - accepted_values:
+              values:
+                - reactivate_lapsed
+                - increase_orders
+                - boost_new_customers
+
+      - name: channel
+        description: "Marketing channel (email, google, facebook, tiktok)"
+        tests:
+          - accepted_values:
+              values:
+                - email
+                - google
+                - facebook
+                - tiktok
+
+      - name: budget
+        description: "Budget allocated for the campaign"
+        tests:
+          - not_null
+
+      - name: cost_model
+        description: "Cost model for the campaign (cpm, cpc, cpa, cpv)"
+        tests:
+          - accepted_values:
+              values:
+                - cpm
+                - cpc
+                - cpa
+                - cpv
+
+      - name: targeting_strategy
+        description: "Targeting strategy (lookalike, broad, custom)"
+        tests:
+          - accepted_values:
+              values:
+                - lookalike
+                - broad
+                - custom
+
+      - name: is_active
+        description: "Indicates if the campaign is active or not"
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - true
+                - false
+                
+
+          

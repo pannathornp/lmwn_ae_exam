@@ -1,0 +1,70 @@
+version: 2
+
+models:
+  - name: model_stg__customers_master
+    description: "Contains basic information about all customers who have used the food delivery service."
+    columns:
+      - name: customer_id
+        description: "Unique identifier for each customer."
+        tests:
+          - not_null
+          - unique
+
+      - name: signup_date
+        description: "Date when customer joined the platform."
+        tests:
+          - not_null
+
+      - name: customer_segment
+        description: "Segment of customer (new, loyal, inactive, churn_risk)."
+        tests:
+          - accepted_values:
+              values:
+                - new
+                - loyal
+                - inactive
+                - churn_risk
+
+
+      - name: status
+        description: "Status of the customer."
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - active
+                - inactive
+
+      - name: referral_source
+        description: "Refferal source of customer (ads, campaign, friend, search, social)."
+        tests:
+          - accepted_values:
+              values:
+                - ads
+                - campaign
+                - friend
+                - search
+                - social
+
+      - name: birth_year
+        description: "Year of birth of the customer."
+      
+      - name: gender
+        description: "Gender of the customer (male, female, other)."
+        tests:
+          - accepted_values:
+              values:
+                - male
+                - female
+                - other
+
+      - name: preferred_device
+        description: "Preferred device of the customer (ios, android, web)."
+        tests:
+          - accepted_values:
+              values:
+                - android
+                - ios
+                - web
+
+

@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: model_stg__drivers_master
+    description: "Lists all delivery drivers in the system along with their background and service zones."
+    columns:
+      - name: driver_id
+        description: "Unique identifier for each driver."
+        tests:
+          - not_null
+          - unique
+
+      - name: join_date
+        description: "Date when driver joined the platform."
+        tests:
+          - not_null
+
+      - name: vehicle_type
+        description: "Type of vehicle used by the driver (van, car, bike)."
+        tests:
+          - accepted_values:
+              values:
+                - van
+                - car
+                - bike
+
+      - name: region
+        description: "Geographic region where driver operates."
+        tests:
+          - not_null
+
+      - name: active_status
+        description: "Current status of the driver (active, inactive)."
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - active
+                - inactive
+
+      - name: driver_rating
+        description: "Average rating of the driver based on customer feedback."
+        tests:
+          - not_null
+
+      - name: bonus_tier
+        description: "Bonus tier of the driver (gold, silver, bronze, platinum)."
+        tests:
+          - accepted_values:
+              values:
+                - gold
+                - silver
+                - bronze
+                - platinum

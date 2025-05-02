@@ -1,0 +1,70 @@
+version: 2
+
+models:
+  - name: model_stg__order_log_incentive_sessions_driver_incentive_logs
+    description: "Stores information about driver bonuses or incentives, including performance targets and qualification status."
+    columns:
+      - name: log_id
+        description: "Unique identifier for each incentive log entry."
+        tests:
+          - not_null
+          - unique
+    
+      - name: driver_id
+        description: "Unique identifier for each driver."
+        tests:
+          - not_null
+
+      - name: incentive_program
+        description: "Name of the incentive program."
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - rainy_day
+                - weekly_bonus
+                - holiday_special
+
+      - name: bonus_amount
+        description: "Amount of bonus awarded to the driver."
+        tests:
+          - not_null
+
+      - name: applied_date
+        description: "Date when the incentive was applied."
+        tests:
+          - not_null
+
+      - name: delivery_target
+        description: "Target number of deliveries to qualify for the incentive."
+        tests:
+          - not_null
+
+      - name: actual_deliveries
+        description: "Actual number of deliveries made by the driver."
+        tests:
+          - not_null
+
+      - name: bonus_qualified
+        description: "Indicates whether the driver qualified for the bonus (true/false)."
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - true
+                - false
+
+      - name: region
+        description: "Geographic region where the driver operates."
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - north
+                - south
+                - east
+                - west
+                - metro
+                - central
+
+

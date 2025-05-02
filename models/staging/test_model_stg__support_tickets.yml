@@ -1,0 +1,96 @@
+version: 2
+
+models:
+  - name: model_stg__support_tickets
+    description: "Records customer support requests or complaints related to orders, drivers, or restaurants."
+    columns:
+      - name: ticket_id
+        desription: "Unique identifier for each support ticket."
+        tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        description: "Unique identifier for the order related to the support ticket."
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: "Unique identifier for the customer who raised the support ticket."
+        tests:
+          - not_null
+
+      - name: driver_id
+        description: "Unique identifier for the driver related to the support ticket."
+        tests:
+          - not_null
+
+      - name: restaurant_id
+        description: "Unique identifier for the restaurant related to the support ticket."
+        tests:
+          - not_null
+
+      - name: issue_type
+        description: "Type of issue raised in the support ticket (rider, delivery, food, payment)."
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - rider
+                - delivery
+                - food
+                - payment
+
+      - name: issue_sub_type
+        description: "Sub-type of the issue raised in the support ticket."
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - no_mask
+                - not_delivered
+                - rude
+                - cold
+                - late
+                - refund
+                - wrong_item
+                - overcharged
+
+      - name: channel
+        description: "Channel through which the support ticket was raised (call, in_app, email)."
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - call
+                - in_app
+                - email
+
+      - name: opened_datetime
+        description: "Timestamp when the support ticket was opened."
+        tests:
+          - not_null
+
+      - name: resolved_datetime
+        description: "Timestamp when the support ticket was resolved."
+
+      - name: status
+        description: "Current status of the support ticket (opened, resolved)."
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - opened
+                - resolved
+
+      - name: csat_score
+        description: "Customer satisfaction score for the support ticket."
+
+      - name: compensation_amount
+        description: "Compensation amount provided to the customer for the support ticket."
+
+      - name: resolved_by_agent_id
+        description: "Unique identifier for the support agent that resolved the ticket."
+  
+
+  

@@ -1,0 +1,80 @@
+version: 2
+
+models:
+  - name: model_stg__campaign_interactions
+    description: "Logs customer interactions with marketing campaigns, such as impressions, clicks, and conversions."
+    columns:
+      - name: interaction_id
+        description: "Unique identifier for each campaign interaction event."
+        tests:
+          - not_null
+          - unique
+
+      - name: campaign_id
+        description: "Campaign associated with the interaction."
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: "Customer involved in the interaction."
+        tests:
+          - not_null
+
+      - name: interaction_datetime
+        description: "Datetime of interaction."
+        tests:
+          - not_null
+
+      - name: event_type
+        description: "Type of interaction event."
+        tests:
+          - accepted_values:
+              values: 
+                - impression
+                - click
+                - conversion
+
+      - name: platform
+        description: "Platform where the interaction occurred."
+        tests:
+          - accepted_values:
+              values:
+                - google
+                - facebook
+                - tiktok
+
+      - name: device_type
+        description: "Type of device used for the interaction."
+        tests:
+          - accepted_values:
+              values:
+                - android
+                - web
+                - ios
+
+      - name: ad_cost
+        description: "Cost associated with the ad interaction."
+
+      - name: order_id
+        description: "Order ID associated with the conversion event."
+        tests:
+          - not_null
+
+      - name: is_new_customer
+        description: "Indicates if the customer is new customer or not."
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - true
+                - false
+
+      - name: revenue_generated
+        description: "Revenue generated from the conversion event."
+
+      - name: session_id
+        description: "Unique identifier for the session during which the interaction occurred."
+        tests:
+          - not_null
+          
+
