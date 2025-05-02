@@ -2,8 +2,9 @@
 
 ### Pannathorn Analytics Engineer Exam at LMWN
 
-Try running the following commands:
+Noted:
 - Data model is in "ae_exam_db.duckdb"
+- All the reports are in "Report" schema
 - Document and Linage: https://pannathornp.github.io/lmwn_ae_exam/
 
 
