@@ -1,0 +1,110 @@
+version: 2
+
+models:
+  - name: report__complaint_summary
+    description: >
+      Summarizes of all customer support tickets across platform.
+
+    columns:
+      - name: year
+        description: Year of the data.
+
+      - name: quarter
+        description: Quarter of the data.
+
+      - name: month
+        description: Month of the data.
+
+      - name: total_opened_tickets
+        description: Total number of support tickets opened during the time period.
+
+      - name: payment
+        description: Number of complaints related to payment issues.
+
+      - name: food
+        description: Number of complaints related to food quality.
+
+      - name: delivery
+        description: Number of complaints related to delivery problems.
+
+      - name: rider
+        description: Number of complaints related to rider behavior or performance.
+
+      - name: total_resolved_tickets
+        description: Total number of tickets that were resolved within the period.
+
+      - name: total_unresolved_tickets
+        description: Total number of tickets that remained unresolved at the end of the period.
+
+      - name: avg_time_to_resolve_minutes
+        description: Average number of minutes taken to resolve tickets.
+
+      - name: total_compensation
+        description: Total monetary compensation or refunds issued to customers.
+
+  - name: report__driver_related_complaint
+    description: >
+      Summary of customer complaints related to driver's behavior and performance.
+
+    columns:
+      - name: driver_id
+        description: Unique identifier of the driver associated with the complaint.
+
+      - name: issue_type
+        description: General category of the issue reported (should be 'rider' for driver-related).
+
+      - name: total_tickets
+        description: Total number of tickets submitted against the driver.
+
+      - name: no_mask
+        description: Count of complaints about drivers not wearing a mask.
+
+      - name: rude
+        description: Count of complaints regarding rude behavior by the driver.
+
+      - name: csat_score
+        description: Average customer satisfaction score for tickets involving the driver.
+
+      - name: avg_time_to_resolve_minutes
+        description: Average time (in minutes) taken to resolve driver-related complaints.
+
+      - name: ratio_of_complaint_percent
+        description: Ratio of driver-related complaints to total deliveries of driver.
+
+      - name: rating_before_complaint
+        description: Average driver rating before complaint submission.
+              
+      - name: rating_after_complaint
+        description: Average driver rating after complaint submission.
+
+
+  - name: report__restaurant_quality_complaint
+    description: >
+      Summary report of customer complaints for monitor the quality and services of restaurants.
+
+    columns:
+      - name: restaurant_id
+        description: Unique identifier for each restaurant.
+
+      - name: restaurant_name
+        description: Name of the restaurant associated with the complaints.
+
+      - name: total_customer_complaint
+        description: Total number of customer complaints filed for the restaurant.
+
+      - name: cold
+        description: Number of complaints related to food being served cold.
+
+      - name: wrong_item
+        description: Number of complaints related to wrong or missing food items.
+
+      - name: avg_time_to_resolve_minutes
+        description: Average time (in minutes) it took to resolve restaurant-related issues.
+
+      - name: total_compensation
+        description: Total compensation or refunds due to restaurant complaints.
+
+      - name: ratio_of_complaint_percent
+        description: Percentage of total restaurant orders that resulted in a complaint.
+
+

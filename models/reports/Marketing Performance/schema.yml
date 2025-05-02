@@ -1,0 +1,106 @@
+version: 2
+
+models:
+  - name: report__campaign_effectiveness
+    description: >
+      Evaluates the performance of marketing campaigns by ad impressions,
+      user engagement, conversions.
+
+    columns:
+      - name: campaign_id
+        description: Unique identifier of the marketing campaign.
+
+      - name: campaign_name
+        description: Name or title of the campaign.
+
+      - name: start_date
+        description: Start date of the campaign.
+
+      - name: end_date
+        description: End date of the campaign.
+
+      - name: impressions
+        description: Number of times the campaign ads were displayed.
+
+      - name: clicks
+        description: Number of user clicks on the campaign ads.
+
+      - name: conversions
+        description: Number of users who completed a purchase after engaging with the ad.
+
+      - name: total_ad_cost
+        description: Total advertising cost spent on the campaign.
+
+      - name: total_revenue
+        description: Total revenue generated from conversions attributed to the campaign.
+
+      - name: cost_per_acquisition
+        description: Average cost to acquire one converting customer.
+
+      - name: return_on_ad_spend
+        description: Revenue-to-cost ratio of the campaign.
+
+  - name: report__customer_acquisition
+    description: >
+      Suammry of customer acquisition performance per campaign.
+
+    columns:
+      - name: campaign_id
+        description: Unique identifier of the marketing campaign that acquired the customer.
+
+      - name: channel
+        description: Marketing channel used for the campaign (e.g., email, social, display ads).
+
+      - name: platform
+        description: Device or platform used by the customer (e.g., iOS, Android, Web).
+
+      - name: customer_id
+        description: Unique identifier of the acquired customer.
+
+      - name: avg_purchase_value
+        description: Average monetary value of purchases made by the customer.
+
+      - name: number_of_repeat_order
+        description: Count of repeat purchases made by the customer after the initial conversion.
+
+      - name: total_ad_cost
+        description: Total marketing spend attributed to acquiring the customer.
+
+      - name: time_to_purchase
+        description: Elapsed time between first interaction and first purchase.
+
+      - name: active_after_first_purchase
+        description: Indicator of whether the customer made additional purchases after the first one.
+
+  - name: report__retargeting_performance
+    description: >
+      Summarize the effectiveness of retargeting campaigns by tracking customer return behavior,
+      spend after retargeting, and time to conversion.
+
+    columns:
+      - name: campaign_id
+        description: Unique identifier of the retargeting campaign.
+
+      - name: campaign_name
+        description: Name of the retargeting campaign.
+
+      - name: targeting_strategy
+        description: Type of targeting strategy used in the campaign.
+
+      - name: channel
+        description: Marketing channel through which the retargeting campaign was delivered.
+
+      - name: targeted_customers
+        description: Number of customers who were exposed to the retargeting campaign.
+
+      - name: returned_customers
+        description: Number of targeted customers who returned and placed an order.
+
+      - name: return_rate_percentage
+        description: Percentage of targeted customers who returned.
+
+      - name: total_spent_after_retargeting
+        description: Total value of purchases made by customers after being retargeted.
+
+      - name: avg_time_to_return_minutes
+        description: Average time (in minutes) between retargeting and the customer next purchase.
