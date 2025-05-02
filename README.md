@@ -4,7 +4,7 @@
 
 Try running the following commands:
 - Data model is in "ae_exam_db.duckdb"
-- Document and Linage: 
+- Document and Linage: https://pannathornp.github.io/lmwn_ae_exam/
 
 
 
